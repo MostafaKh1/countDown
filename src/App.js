@@ -1,25 +1,30 @@
-import logo from './logo.svg';
-import './App.css';
+import React from "react"
+import Header from "./component/Header"
+import Footer from "./component/Footer"
+import "./Style.css"
 
-function App() {
+export default function App() {
+
+    let countDown = new Date("Sat May 28 2022 22:46:48")
+
+      let counter = setInterval(() => {
+      let dateNow = new Date().getTime();
+      let dateDiff = countDown - dateNow
+
+      var days = Math.floor( dateDiff  / (1000 * 60 * 60 * 24))
+      
+    }, 1000)
+
+    console.log(counter.dateNow)
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div>
+          <Header  
+            day={counter.days}
+          />
+          <Footer />
     </div>
-  );
+  )
 }
 
-export default App;
+
